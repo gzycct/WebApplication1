@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebApplication1</title>
+    <title>@ViewData["Title"] - 书籍管理系统</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -26,13 +26,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-page="/Index" class="navbar-brand">WebApplication1</a>
+                <a asp-page="/Books/Index" class="navbar-brand">书籍管理系统</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-page="/Index">Home</a></li>
-                    <li><a asp-page="/About">About</a></li>
-                    <li><a asp-page="/Contact">Contact</a></li>
+                    <li><a asp-page="/Books/Index">书籍管理系统</a></li>
+                    <li><a asp-page="/Descri/Index">文件上传</a></li>
+                    <li><a asp-page="/About">书籍统计</a></li>
+                    <li><a asp-page="/Contact">联系我们</a></li>
                 </ul>
             </div>
         </div>
@@ -41,7 +42,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2017 - WebApplication1</p>
+            <p>&copy; 2017 - 书籍管理系统</p>
         </footer>
     </div>
 
@@ -69,3 +70,4 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+ 

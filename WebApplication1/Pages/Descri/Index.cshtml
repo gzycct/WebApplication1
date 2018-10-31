@@ -1,0 +1,89 @@
+﻿@page
+@model WebApplication1.Pages.Descri.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>文件上传</h2>
+<hr />
+<h3> 文件上传</h3>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label asp-for="FileUpload.FileName" class="control-label"></label>
+                <input asp-for="FileUpload.FileName" type="text" class="form-control" />
+                <span asp-validation-for="FileUpload.FileName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+
+                <label asp-for="FileUpload.UploadPublicDescribe" class="control-label"></label>
+                <input asp-for="FileUpload.UploadPublicDescribe" type="file" class="form-control" style="height:auto" />
+                <span asp-validation-for="FileUpload.UploadPublicDescribe" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FileUpload.UploadPrivateDescribe" class="control-label"></label>
+                <input asp-for="FileUpload.UploadPrivateDescribe" type="file" class="form-control" style="height:auto" />
+                <span asp-validation-for="FileUpload.UploadPrivateDescribe" class="text-danger"></span>
+
+            </div>
+            <input type="submit" value="Upload" class="btn btn-default" />
+
+        </form>
+    </div>
+</div>
+
+
+<h3>已上传文件列表</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Describe[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Describe[0].UploadDateTime)
+            </th>
+
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Describe[0].PublicScheduleSize)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Describe[0].PrivateScheduleSize)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Describe)
+        {
+            <tr>
+                <td>
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UploadDateTime)
+
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.PublicScheduleSize)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.PrivateScheduleSize)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

@@ -1,0 +1,47 @@
+@page "{id:int}"
+@model WebApplication1.Pages.Books.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+<h2>Details</h2>
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Book.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.ReleaseDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Book.ReleaseDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.Author)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Book.Author)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Book.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.Publishing)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Book.Publishing)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Book.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

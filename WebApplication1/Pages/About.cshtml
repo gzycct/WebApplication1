@@ -1,9 +1,31 @@
 ﻿@page
 @model AboutModel
 @{
-    ViewData["Title"] = "About";
+    ViewData["Title"] = "书籍统计信息";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@Model.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+<h2>书籍统计信息</h2>
+<table>
+    <tr>
+        <th>
+            出版社
+
+        </th>
+        <th>
+            书籍数量
+
+        </th>
+    </tr>
+    @foreach (var item in Model.BookGroup)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publish)
+            </td>
+            <td align="right">
+                @item.BooksCount
+            </td>
+
+        </tr>
+    }
+</table>
