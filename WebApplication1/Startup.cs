@@ -26,6 +26,7 @@ namespace WebApplication1
         {
             services.AddDbContext<BookContext>(options => options.UseSqlServer(Configuration.GetConnectionString("BookContext")));
             services.AddMvc();
+ 
 
         }
 
